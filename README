@@ -1,0 +1,45 @@
+Apache2::HttpEquiv version 0.01, released March 3, 2012
+
+
+This module provides a PerlFixupHandler for mod_perl 2 that turns
+<meta http-equiv="Header-Name" content="Header Value"> into an actual
+HTTP header.  It also looks for <meta charset="..."> and uses it to
+set the Content-Type.
+
+
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+
+
+DEPENDENCIES
+
+  Package           Minimum Version
+  ----------------- ---------------
+  perl               5.008
+  Apache2::Const     
+  HTML::PullParser
+
+
+
+CHANGES
+    Here's what's new in version 0.01 of Apache2::HttpEquiv:
+    (See the file "Changes" for the full revision history.)
+
+	- Initial release
+
+
+
+COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Christopher J. Madsen.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
