@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Convert <meta http-equiv=...> to HTTP headers",
   "AUTHOR" => "Christopher J. Madsen <perl\@cjmweb.net>",
-  "BUILD_REQUIRES" => {
-    "File::Temp" => 0,
-    "Moose" => 0,
-    "Test::More" => "0.88"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -27,24 +23,31 @@ my %WriteMakefileArgs = (
     "Apache2::Const" => 0,
     "HTML::PullParser" => 0
   },
-  "VERSION" => "0.01",
+  "TEST_REQUIRES" => {
+    "File::Temp" => 0,
+    "Moo" => 0,
+    "Test::More" => "0.88"
+  },
+  "VERSION" => "1.00",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
+my %FallbackPrereqs = (
+  "Apache2::Const" => 0,
+  "File::Temp" => 0,
+  "HTML::PullParser" => 0,
+  "Moo" => 0,
+  "Test::More" => "0.88"
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}

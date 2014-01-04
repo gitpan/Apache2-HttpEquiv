@@ -25,8 +25,8 @@ use HTML::PullParser;
 #=====================================================================
 # Package Global Variables:
 
-our $VERSION = '0.01';
-# This file is part of Apache2-HttpEquiv 0.01 (March 3, 2012)
+our $VERSION = '1.00';
+# This file is part of Apache2-HttpEquiv 1.00 (January 4, 2014)
 
 #=====================================================================
 sub handler
@@ -84,8 +84,8 @@ Apache2::HttpEquiv - Convert <meta http-equiv=...> to HTTP headers
 
 =head1 VERSION
 
-This document describes version 0.01 of
-Apache2::HttpEquiv, released March 3, 2012.
+This document describes version 1.00 of
+Apache2::HttpEquiv, released January 4, 2014.
 
 =head1 SYNOPSIS
 
@@ -137,11 +137,11 @@ or through the web interface at
 L<< http://rt.cpan.org/Public/Bug/Report.html?Queue=Apache2-HttpEquiv >>.
 
 You can follow or contribute to Apache2-HttpEquiv's development at
-L<< http://github.com/madsen/apache2-httpequiv >>.
+L<< https://github.com/madsen/apache2-httpequiv >>.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Christopher J. Madsen.
+This software is copyright (c) 2014 by Christopher J. Madsen.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
